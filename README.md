@@ -56,3 +56,12 @@ con `1`, `2` o `3` corre solo esa.
 `.github/workflows/ci.yml` corre `mvn --batch-mode verify` con JDK 21
 en cada push a `master`/`develop` y en cada pull request a `master`, y
 sube el reporte de JaCoCo como artefacto.
+
+
+## Estado del build
+
+[![Java CI](https://github.com/luisestrada88/program5-simpson/actions/workflows/ci.yml/badge.svg)](https://github.com/luisestrada88/program5-simpson/actions/workflows/ci.yml)
+
+Cada push a `master` o `develop` y cada pull request a `master` ejecuta
+`mvn --batch-mode verify` con JDK 21. El build falla si la cobertura baja
+del 100 % en instrucciones o ramas.
