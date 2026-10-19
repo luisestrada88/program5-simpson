@@ -34,4 +34,5 @@ Productividad To Date (programas 1–3): 777 LOC en 16.5 h = **47.1 LOC/h**.
 | Concepto | Valor |
 |---|---|
 | Tiempo estimado (280 ÷ 47.1) | **6.0 h (360 min)** |
-| Tiempo real | ver `time_log.md` |
+| Tiempo real | **8.0 h (480 min)** |
+| **CPI** (estimado / real) | **0.75** |

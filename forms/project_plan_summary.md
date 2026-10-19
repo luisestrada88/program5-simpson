@@ -7,9 +7,9 @@
 
 | Concepto | Plan | Actual | To Date |
 |---|---|---|---|
-| LOC/hora | 47.1 | 63.0 | 51.1 |
+| LOC/hora | 47.1 | 47.3 | 47.1 |
 
-*To Date acumula los programas 1, 2, 3 y 5: 1,155 LOC en 22.5 horas.*
+*To Date acumula los programas 1, 2, 3 y 5: 1,155 LOC en 24.5 horas.*
 
 ## Tamaño del programa (LOC)
 
@@ -31,15 +31,15 @@ Detalle en `size_estimating_template.md`. Estimación por **PROBE 4D**
 
 | Fase | Plan | Actual | To Date | To Date % |
 |---|---|---|---|---|
-| Planning | 58 | 60 | 220 | 16.3 |
-| Design | 35 | 40 | 135 | 10.0 |
-| Design Review | 0 | **20** | **20** | 1.5 |
-| Code | 104 | 70 | 355 | 26.3 |
-| Code Review | 0 | **25** | **25** | 1.9 |
-| Compile | 53 | 20 | 165 | 12.2 |
-| Test | 71 | 75 | 270 | 20.0 |
-| Postmortem | 39 | 50 | 160 | 11.8 |
-| **Total** | **360** | **360** | **1,350** | **100** |
+| Planning | 58 | 80 | 240 | 16.3 |
+| Design | 35 | 53 | 148 | 10.1 |
+| Design Review | 0 | **27** | **27** | 1.8 |
+| Code | 104 | 93 | 378 | 25.8 |
+| Code Review | 0 | **33** | **33** | 2.2 |
+| Compile | 53 | 27 | 172 | 11.7 |
+| Test | 71 | 100 | 295 | 20.1 |
+| Postmortem | 39 | 67 | 177 | 12.0 |
+| **Total** | **360** | **480** | **1,470** | **100** |
 
 > La columna **Plan** aplica el *To Date %* del Programa 3 a la estimación
 > global de 6.0 h obtenida con PROBE.
@@ -47,8 +47,8 @@ Detalle en `size_estimating_template.md`. Estimación por **PROBE 4D**
 | Indicador | Valor |
 |---|---|
 | Tiempo estimado | 6.0 h (360 min) |
-| Tiempo real | 6.0 h (360 min) |
-| **CPI** (estimado / real) | **1.00** |
+| Tiempo real | 8.0 h (480 min) |
+| **CPI** (estimado / real) | **0.75** |
 
 ## Defectos inyectados
 
