@@ -1,15 +1,15 @@
-# Formato de data/in.txt
+# Carpeta data
 
-Un renglon por caso de prueba (Tabla 1 del documento 5a).
-Dos columnas separadas por espacio:
+`out.txt` — reporte que genera el programa con `Output.writeData`.
 
-| Columna | Significado |
-|---|---|
-| 1 | x — limite superior de la integral (desde 0) |
-| 2 | dof — grados de libertad |
+Los tres casos de prueba de la Tabla 1 del documento 5a **no se leen de
+un archivo**: el diagrama de clases de la diapositiva 46 no incluye una
+clase de entrada, asi que estan como constantes en `App`:
 
-Valores esperados:
+| Prueba | x | dof | p esperada |
+|---|---|---|---|
+| 1 | 1.1 | 9 | 0.35006 |
+| 2 | 1.1812 | 10 | 0.36757 |
+| 3 | 2.750 | 30 | 0.49500 |
 
-  x = 1.1     dof = 9    ->  p = 0.35006
-  x = 1.1812  dof = 10   ->  p = 0.36757
-  x = 2.750   dof = 30   ->  p = 0.49500
+`in.txt` se conserva solo como referencia de esos valores.
