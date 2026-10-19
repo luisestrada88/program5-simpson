@@ -7,39 +7,41 @@
 
 | Concepto | Plan | Actual | To Date |
 |---|---|---|---|
-| LOC/hora | 47.1 | 47.3 | 47.1 |
+| LOC/hora | 47.1 | 46.2 | 46.8 |
 
-*To Date acumula los programas 1, 2, 3 y 5: 1,155 LOC en 24.5 horas.*
+*To Date acumula los programas 1, 2, 3 y 5: 1,193 LOC en 25.5 horas.*
 
 ## Tamaño del programa (LOC)
 
 | Concepto | Plan | Actual | To Date |
 |---|---|---|---|
-| Base (B) | 89 | 89 | 89 |
+| Base (B) | 89 | 0 | 0 |
 | Deleted (D) | 0 | 0 | 0 |
 | Modified (M) | 0 | 0 | 41 |
-| Added (A) | 280 | 289 | 974 |
-| Reused (R) | 89 | 89 | 117 |
-| New & Changed (N = A + M) | 280 | 289 | 1,015 |
-| **Total LOC (T)** | **369** | **378** | **1,155** |
-| New Reusable | 74 | 74 | 123 |
+| Added (A) | 280 | 416 | 1,101 |
+| Reused (R) | 89 | 0 | 28 |
+| New & Changed (N = A + M) | 280 | 416 | 1,142 |
+| **Total LOC (T)** | **369** | **416** | **1,193** |
+| New Reusable | 74 | 124 | 173 |
 
 Detalle en `size_estimating_template.md`. Estimación por **PROBE 4D**
-(juicio), justificada en `probe_worksheet.md`. Error de estimación: **+3.2 %**.
+(juicio), justificada en `probe_worksheet.md`. Error de estimación: **+48.6 %**.
+El reuso planeado de 89 LOC del Programa 3 no se materializó: al adoptar el
+diagrama de clases de la diapositiva 46, todo el código resultó nuevo.
 
 ## Tiempo en fase (minutos)
 
 | Fase | Plan | Actual | To Date | To Date % |
 |---|---|---|---|---|
-| Planning | 58 | 80 | 240 | 16.3 |
-| Design | 35 | 53 | 148 | 10.1 |
+| Planning | 58 | 80 | 240 | 15.7 |
+| Design | 35 | 68 | 163 | 10.7 |
 | Design Review | 0 | **27** | **27** | 1.8 |
-| Code | 104 | 93 | 378 | 25.8 |
-| Code Review | 0 | **33** | **33** | 2.2 |
-| Compile | 53 | 27 | 172 | 11.7 |
-| Test | 71 | 100 | 295 | 20.1 |
-| Postmortem | 39 | 67 | 177 | 12.0 |
-| **Total** | **360** | **480** | **1,470** | **100** |
+| Code | 104 | 123 | 408 | 26.7 |
+| Code Review | 0 | **33** | **33** | 2.1 |
+| Compile | 53 | 27 | 172 | 11.2 |
+| Test | 71 | 115 | 310 | 20.3 |
+| Postmortem | 39 | 67 | 177 | 11.5 |
+| **Total** | **360** | **540** | **1,530** | **100** |
 
 > La columna **Plan** aplica el *To Date %* del Programa 3 a la estimación
 > global de 6.0 h obtenida con PROBE.
@@ -47,31 +49,34 @@ Detalle en `size_estimating_template.md`. Estimación por **PROBE 4D**
 | Indicador | Valor |
 |---|---|
 | Tiempo estimado | 6.0 h (360 min) |
-| Tiempo real | 8.0 h (480 min) |
-| **CPI** (estimado / real) | **0.75** |
+| Tiempo real | 9.0 h (540 min) |
+| **CPI** (estimado / real) | **0.67** |
 
 ## Defectos inyectados
 
 | Fase | Plan | Actual | To Date | To Date % |
 |---|---|---|---|---|
 | Planning | 0 | 0 | 0 | 0 |
-| Design | 0 | **1** | 2 | 18.2 |
-| Code | 3 | **2** | 9 | 81.8 |
+| Design | 0 | **2** | 3 | 25.0 |
+| Code | 3 | **2** | 9 | 75.0 |
 | Compile | 0 | 0 | 0 | 0 |
 | Test | 0 | 0 | 0 | 0 |
-| **Total** | **3** | **3** | **11** | **100** |
+| **Total** | **3** | **4** | **12** | **100** |
 
 ## Defectos removidos
 
 | Fase | Plan | Actual | To Date | To Date % |
 |---|---|---|---|---|
 | Planning | 0 | 0 | 0 | 0 |
-| Design Review | 1 | **1** | 1 | 10.0 |
-| Code Review | 1 | **1** | 1 | 10.0 |
-| Compile | 0 | 0 | 1 | 10.0 |
-| Test | 1 | **1** | 6 | 60.0 |
-| Code | 0 | 0 | 1 | 10.0 |
-| **Total** | **3** | **3** | **10** | **100** |
+| Design Review | 1 | **1** | 1 | 9.1 |
+| Code Review | 1 | **1** | 1 | 9.1 |
+| Compile | 0 | 0 | 1 | 9.1 |
+| Test | 1 | **1** | 6 | 54.5 |
+| Code | 0 | 0 | 1 | 9.1 |
+| Postmortem | 0 | **1** | 1 | 9.1 |
+| **Total** | **3** | **4** | **11** | **100** |
 
 > Primer programa con las fases **Design Review** y **Code Review** de PSP2.
-> Atraparon 2 de 3 defectos antes de compilar.
+> Atraparon 2 de 4 defectos antes de compilar. El cuarto —el diseño no seguía
+> el diagrama de clases del profesor— se detectó hasta el postmortem, al
+> revisar la presentación completa contra el código.
