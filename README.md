@@ -4,32 +4,39 @@ Calcula la integral de la distribucion t de Student de 0 a x usando la
 regla de Simpson, duplicando el numero de segmentos hasta que dos
 aproximaciones seguidas difieran menos de 0.00001.
 
+La estructura sigue el **diagrama de clases de la diapositiva 46** de la
+presentacion del profesor.
+
 ## Clases
 
-| Clase | Que hace | Origen |
-|---|---|---|
-| `Gamma` | funcion gamma para enteros y medios enteros | nueva |
-| `DistribucionT` | densidad de la distribucion t | nueva |
-| `Simpson` | regla de Simpson y control del error | nueva |
-| `Main` | ejecuta una prueba o las tres | nueva |
-| `Nodo` | par de valores de la lista | reusada del P3 |
-| `ListaEnlazada` | lista enlazada simple | reusada del P3 |
-| `ReadFile` | lee `data/in.txt` | reusada del P3 |
-| `OutFile` | escribe `data/out.txt` | reusada del P3 |
+| Clase | Responsabilidad |
+|---|---|
+| `App` | `main(args)`: corre los 3 casos o solo el que se le pase |
+| `Logic` | `logic1a()`: duplica segmentos hasta alcanzar la precision |
+| `SimpsonIntegration` | un metodo por cada columna de la Tabla 2 |
+| `GammaFunction` | `computeIntGamma` y `computeDblGamma` |
+| `Output` | `writeData(outFile, outText)` |
+
+`SimpsonIntegration` expone los pasos del diagrama: `computeW`,
+`computeXi`, `computeFirstBaseTerms`, `computeExponent`,
+`computeCoefficient`, `computeFxi`, `computeFinalTerms` y
+`computeFinalValue`.
 
 ## Como ejecutarlo
 
 ```bash
 cd PSP/Program5
 
-mvn test                          # todas las pruebas juntas
+mvn test                                   # las 26 pruebas juntas
 mvn test -Dtest='A5Test#prueba1TablaUno'   # una sola prueba
-mvn verify                        # pruebas + 100% de cobertura
-mvn compile exec:java 2>/dev/null || java -cp target/classes Main 1
+mvn verify                                 # pruebas + 100% de cobertura
+
+mvn compile
+java -cp target/classes App      # las 3 pruebas
+java -cp target/classes App 1    # solo la prueba 1
 ```
 
-`java -cp target/classes Main` sin parametro corre las tres pruebas;
-con `1`, `2` o `3` corre solo esa.
+El resultado tambien se escribe en `data/out.txt`.
 
 ## Resultados (Tabla 1 del documento 5a)
 
@@ -41,22 +48,15 @@ con `1`, `2` o `3` corre solo esa.
 
 ## Pruebas y cobertura
 
-- 27 pruebas JUnit 5, todas pasan.
-- JaCoCo: 100% de instrucciones y 100% de ramas (`mvn verify` pasa el
-  check configurado en 1.00).
+- 26 pruebas JUnit 5, todas pasan.
+- JaCoCo: 100% de instrucciones y 100% de ramas (`mvn verify` falla si
+  baja de ahi).
 - Reporte HTML: `target/site/jacoco/index.html`
 
 ## Tamanio
 
-208 LOC de produccion, 170 LOC de pruebas, 378 LOC en total
+220 LOC de produccion, 196 LOC de pruebas, 416 LOC en total
 (sin comentarios ni lineas en blanco, estandar R2).
-
-## CI/CD
-
-`.github/workflows/ci.yml` corre `mvn --batch-mode verify` con JDK 21
-en cada push a `master`/`develop` y en cada pull request a `master`, y
-sube el reporte de JaCoCo como artefacto.
-
 
 ## Estado del build
 

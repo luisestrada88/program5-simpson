@@ -1,21 +1,47 @@
 # Decisiones de diseno - Programa 5
 
-1. **Gamma solo para multiplos de 1/2.** La distribucion t solo necesita
-   gamma en `(dof+1)/2` y `dof/2`, con dof entero. Por eso se usan las
-   dos identidades del documento: `gamma(n) = (n-1)!` y
-   `gamma(z+1) = z*gamma(z)` partiendo de `gamma(1/2) = raiz(pi)`.
-   No se implemento una gamma general (Lanczos) porque no hace falta.
+## El diagrama de clases manda
 
-2. **Segmentos iniciales = 10 y se duplican.** El documento pide
-   duplicar hasta que la diferencia entre dos corridas sea menor que
-   0.00001. Con 20 segmentos ya se alcanza en los tres casos.
+La estructura del programa es la del **diagrama de la diapositiva 46**:
+`App`, `Logic`, `SimpsonIntegration`, `GammaFunction` y `Output`, con los
+nombres de metodos y atributos que ahi aparecen.
 
-3. **Reuso del P3.** `Nodo`, `ListaEnlazada`, `ReadFile` y `OutFile` se
-   reusaron sin cambios de logica; solo se actualizo el encabezado.
+Una primera version se escribio antes de localizar ese diagrama, con otra
+estructura (Main, Gamma, DistribucionT, Simpson, mas una lista enlazada
+reusada del Programa 3). Calculaba bien, pero se descarto por no
+corresponder al diseno pedido. Se conserva en `_version_anterior/`.
 
-4. **Un parametro en `Main`.** El profesor pidio poder probar una prueba
-   a la vez pasando cual por parametro; `Main` acepta 1, 2 o 3 y sin
-   parametro corre las tres.
+## Decisiones puntuales
 
-5. **`Locale.US` en los printf.** Defecto ya conocido del Programa 1:
-   en una Mac en espanol `%.4f` imprime coma decimal.
+1. **`Output` en lugar de `output`.** El diagrama muestra la clase con
+   minuscula inicial, porque fue generado por ingenieria inversa desde el
+   codigo original. Se escribe `Output` para cumplir el estandar de
+   codificacion de Oracle, que tambien pide el profesor y que exige
+   mayuscula inicial en los nombres de clase. Es la unica desviacion
+   respecto al diagrama.
+
+2. **Un metodo por columna de la Tabla 2.** `computeFirstBaseTerms`,
+   `computeFxi` y `computeFinalTerms` devuelven arreglos que corresponden
+   exactamente a las columnas del ejemplo del documento, para poder
+   comparar valor por valor.
+
+3. **`computeGamma` como metodo auxiliar.** El diagrama define
+   `computeIntGamma` y `computeDblGamma` por separado, pero no dice quien
+   decide cual usar. Se agrego `computeGamma(value)` que revisa si el
+   valor es entero y delega. Los dos metodos del diagrama siguen
+   existiendo y son publicos.
+
+4. **Getters.** El diagrama no los lista, pero `logic1a()` devuelve
+   `void`, asi que se agregaron accesores para poder probar el resultado
+   desde JUnit.
+
+5. **Sin lectura de archivo.** El diagrama no incluye una clase de
+   entrada: los tres casos de la Tabla 1 son constantes en `App`. La
+   salida si se escribe, con `Output.writeData`, como indica el diagrama.
+
+6. **Segmentos iniciales = 10 y se duplican.** Tal como lo pide el
+   documento: se repite hasta que la diferencia entre dos corridas sea
+   menor que 0.00001. Con 20 segmentos se alcanza en los tres casos.
+
+7. **`Locale.US` en los printf.** Defecto ya conocido del Programa 1: en
+   una Mac en espanol `%.4f` imprime coma decimal.
