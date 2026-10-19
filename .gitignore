@@ -1,0 +1,5 @@
+target/
+*.class
+data/out.txt
+data/prueba_out.txt
+.DS_Store
