@@ -1,0 +1,22 @@
+RESULTADOS DE COBERTURA - PROGRAMA 5 (JaCoCo 0.8.12)
+Comando: mvn verify
+
+--- jacoco:0.8.12:prepare-agent (prepare) @ program5 ---
+argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.12/org.jacoco.agent-0.8.12-runtime.jar=destfile=/root/p5/target/jacoco.exec
+--- jacoco:0.8.12:report (reporte) @ program5 ---
+Loading execution data file /root/p5/target/jacoco.exec
+--- jacoco:0.8.12:check (check-100) @ program5 ---
+Loading execution data file /root/p5/target/jacoco.exec
+All coverage checks have been met.
+
+Clase                 Instr. sin cubrir   Ramas sin cubrir
+Gamma                0                   0
+Nodo                 0                   0
+ListaEnlazada        0                   0
+ReadFile             0                   0
+Main                 0                   0
+OutFile              0                   0
+DistribucionT        0                   0
+Simpson              0                   0
+
+TOTAL: 0 instrucciones sin cubrir, 0 ramas sin cubrir = 100%
