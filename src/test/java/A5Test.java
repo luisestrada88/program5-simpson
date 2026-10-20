@@ -163,6 +163,38 @@ public class A5Test {
     }
 
     @Test
+    public void multiplicadoresDeSimpsonSiguenElPatron() {
+        SimpsonIntegration simpson =
+                new SimpsonIntegration(4, 9, 0.00001);
+        simpson.computeFinalValue(4);
+        double[] fxi = simpson.computeFxi(4);
+        double[] terminos = simpson.computeFinalTerms(4);
+        double anchoTercio = simpson.getDblW() / 3;
+        int[] esperados = {1, 4, 2, 4, 1};
+
+        for (int i = 0; i <= 4; i++) {
+            double multiplicador = terminos[i] / (anchoTercio * fxi[i]);
+            assertEquals(esperados[i], multiplicador, 0.000001);
+        }
+    }
+
+    @Test
+    public void anchoYPuntosDelPrototipoDelProfesor() {
+        SimpsonIntegration simpson =
+                new SimpsonIntegration(4, 9, 0.00001);
+
+        assertEquals(1.0, simpson.computeW(4, 4), TOLERANCIA);
+
+        double[] xi = simpson.computeXi(4);
+
+        assertEquals(0.0, xi[0], TOLERANCIA);
+        assertEquals(1.0, xi[1], TOLERANCIA);
+        assertEquals(2.0, xi[2], TOLERANCIA);
+        assertEquals(3.0, xi[3], TOLERANCIA);
+        assertEquals(4.0, xi[4], TOLERANCIA);
+    }
+
+    @Test
     public void computeFinalValueConDiezSegmentos() {
         SimpsonIntegration simpson =
                 new SimpsonIntegration(1.1, 9, 0.00001);
