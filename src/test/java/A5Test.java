@@ -37,7 +37,7 @@ public class A5Test {
 
 //         assertEquals(0.36757, logica.getDblFinalValue(), TOLERANCIA);
 
-        assertEquals(0.3675, logica.getDblFinalValue(), TOLERANCIA);
+        assertEquals(0.36757, logica.getDblFinalValue(), TOLERANCIA);
     }
 
     @Test
