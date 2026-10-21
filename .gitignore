@@ -3,3 +3,7 @@ target/
 data/out.txt
 data/prueba_out.txt
 .DS_Store
+
+# Primera version del programa, antes del diagrama de clases.
+# Se conserva en local como respaldo; no forma parte de la entrega.
+_version_anterior/

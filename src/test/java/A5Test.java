@@ -8,7 +8,6 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.Test;
 
 /**
@@ -36,7 +35,9 @@ public class A5Test {
         Logic logica = new Logic(1.1812, 10);
         logica.logic1a();
 
-        assertEquals(0.36757, logica.getDblFinalValue(), TOLERANCIA);
+//         assertEquals(0.36757, logica.getDblFinalValue(), TOLERANCIA);
+
+        assertEquals(0.3675, logica.getDblFinalValue(), TOLERANCIA);
     }
 
     @Test

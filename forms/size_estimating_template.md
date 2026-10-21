@@ -9,27 +9,43 @@ ni líneas en blanco.
 
 | Parte | Tipo | LOC | Clasificación |
 |---|---|---|---|
-| `Gamma.java` | nueva | 24 | Added |
-| `DistribucionT.java` | nueva | 9 | Added |
-| `Simpson.java` | nueva | 41 | Added |
-| `Main.java` | nueva | 45 | Added |
-| `Nodo.java` | del P3 | 22 | Reused |
-| `ListaEnlazada.java` | del P3 | 27 | Reused |
-| `ReadFile.java` | del P3 | 25 | Reused |
-| `OutFile.java` | del P3 | 15 | Reused |
-| `A5Test.java` | nueva | 170 | Added |
+| `App.java` | nueva | 37 | Added |
+| `Logic.java` | nueva | 47 | Added |
+| `SimpsonIntegration.java` | nueva | 95 | Added |
+| `GammaFunction.java` | nueva | 29 | Added |
+| `Output.java` | nueva | 12 | Added |
+| `A5Test.java` | nueva | 196 | Added |
 
 ## Resumen
 
 | Concepto | LOC |
 |---|---|
-| Base (B) | 89 |
+| Base (B) | 0 |
 | Deleted (D) | 0 |
 | Modified (M) | 0 |
-| Added (A) | 289 |
-| Reused (R) | 89 |
-| New & Changed (N = A + M) | 289 |
-| **Total (T)** | **378** |
-| New Reusable | 74 (`Gamma`, `DistribucionT`, `Simpson`) |
+| Added (A) | 416 |
+| Reused (R) | 0 |
+| New & Changed (N = A + M) | 416 |
+| **Total (T)** | **416** |
+| New Reusable | 124 (`GammaFunction`, `SimpsonIntegration`) |
 
-Producción: 208 LOC · Pruebas: 170 LOC.
+Producción: 220 LOC · Pruebas: 196 LOC.
+
+> **Nota sobre el reuso.** La estimación original contemplaba reusar 89 LOC
+> del Programa 3 (`Nodo`, `ListaEnlazada`, `ReadFile`, `OutFile`). Al
+> adoptar el diagrama de clases de la diapositiva 46 ese reuso desapareció:
+> el diagrama no incluye lista enlazada ni clase de entrada. Todo el código
+> de esta versión es nuevo.
+
+## Reuso
+
+| Concepto | Valor |
+|---|---|
+| LOC reusadas | **0** — el diagrama de clases eliminó el reuso previsto |
+| LOC totales | 416 |
+| **% de reuso** | **0 %** |
+| LOC nuevas reusables | 124 (`GammaFunction`, `SimpsonIntegration`) |
+| **% nuevo reusable** | **29.8 %** |
+
+Comparación con los programas anteriores: el 3a reusó 15 LOC y el 5a ninguna.
+El reuso previsto de 89 LOC se perdió al adoptar el diagrama.
